@@ -1,0 +1,92 @@
+/*start reset*/
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+/*end reset*/
+
+.SidebarContainer {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border-right: 1px solid #dde1f1;
+    background-color: #fff;
+    overflow-y: auto;
+    --time-transition: 0.5s;
+}
+
+.SidebarContainer__Item {
+    border-bottom: 1px solid #dde1f1;
+    transition: border-bottom var(--time-transition) ease-in-out;
+}
+
+.SidebarContainer__Item.WithChildren {
+    border-bottom-color: transparent;
+}
+
+.SidebarContainer__Link {
+    color: #676f8f;
+    padding: 1.25rem;
+    cursor: pointer;
+    width: 100%;
+    display: inline-block;
+}
+
+.SidebarContainer__Link:hover {
+    background-color: #f7f8fc;
+}
+
+.SubSidebarContainer {
+    padding: 0;
+}
+
+.SubSidebarContainer .SidebarContainer__Link {
+    padding-left: 2.5rem;
+}
+
+/*Dropdown menu*/
+.DropdownMenu {
+    /*todo esto es momentaneo*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.2s ease;
+    z-index: 9;
+    height: 100vh;
+    width: 300px;
+}
+
+.DropdownMenu .SubSidebarContainer.PreserveTransition {
+    transition: max-height var(--time-transition) ease-in-out;
+    overflow: hidden;
+}
+
+.DropdownMenu .SubSidebarContainer.isCollapse {
+    max-height: 0;
+}
+
+.DropdownMenu .SubSidebarContainer.isExpanded {
+    max-height: 2000px;
+}
+
+/*Floating Menu*/
+.FloatingMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.2s ease;
+    z-index: 9;
+    height: 100vh;
+    width: 300px;
+}
+
+.FloatingMenu.hide {
+    left: -300px;
+}
