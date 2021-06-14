@@ -1,0 +1,46 @@
+.SidebarContainer {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border-right: 1px solid #dde1f1;
+    background-color: #fff;
+    overflow-y: auto;
+    --transition-time: 0.6s;
+}
+
+.SidebarContainer__Item {
+    border-bottom: 1px solid #dde1f1;
+    transition: border-bottom var(--transition-time) ease-in-out;
+}
+
+.SidebarContainer__Item.WithChildren {
+    border-bottom-color: transparent;
+}
+
+.SidebarContainer__Link {
+    color: #676f8f;
+    padding: 1.25rem;
+    cursor: pointer;
+    width: 100%;
+    display: inline-block;
+}
+
+.SidebarContainer__Link:hover {
+    background-color: #f7f8fc;
+}
+
+.SubSidebarContainer {
+    padding: 0;
+}
+
+.SubSidebarContainer .SidebarContainer__Item {
+    padding-left: 2.5rem;
+}
+
+.SubSidebarContainer .SidebarContainer__Item:hover {
+    background-color: #f7f8fc;
+}
+
+.SubSidebarContainer .SidebarContainer__Link {
+    padding-left: 0;
+}

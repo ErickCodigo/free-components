@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.DropdownMenu .SubSidebarContainer.PreserveTransition {
+    transition: max-height var(--transition-time) ease-in-out;
+    overflow: hidden;
+}
+
+.DropdownMenu .SubSidebarContainer.isCollapse {
+    max-height: 0;
+}
+
+.DropdownMenu .SubSidebarContainer.isExpanded {
+    max-height: 2000px;
+}

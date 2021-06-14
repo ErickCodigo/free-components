@@ -1,51 +1,75 @@
-import "./styles.css";
-import VerticalDropdownMenu from "./VerticalDropdownMenu";
+import {ControllerFloatingMenu} from "./components/ControllerFloatingMenu/";
+import {VerticalDropdownMenu} from "./components/DropdownMenu";
+import Logo from "./components/Logo/Logo";
 
 export default function App() {
     const routes = [
-        { name: "HOME 1", href: "/w1" },
-        { name: "HOME 2", href: "/w1" },
         {
-            name: "SERVICIOS",
-            href: "/w2",
+            name: "PAGOS",
             children: [
-                { name: "SERVICIO 1", href: "/w2/1" },
-                { name: "SERVICIO 2", href: "/w2/2" },
-                { name: "SERVICIO 3", href: "/w2/3" }
+                {name: "Conciliación: Extracción Documentos de Pagos", href: "Conciliacion_Extraccion"},
+                {name: "Conciliación: Estados de Documentos de Pagos", href: "Conciliacion_Estados"},
+                {name: "Autorizar Documentos de Pagos: Montos Mayores", href: "Autorizador"},
+                {name: "Generación de Lotes", href: "OperadorGeneracionLotes"},
+                {name: "Consulta SUNAT: Embargos Telemáticos", href: "ConsultaSunat"},
+                {name: "Lotes Generados", href: "OperadorLotesGenerados"},
+                {name: "Revisión de lotes", href: "Revisor"},
             ]
         },
         {
-            name: "PRODUCTOS",
-            href: "/w3",
+            name: "CONFIGURACIÓN",
             children: [
-                { name: "PRODUCTO 1", href: "/w3/1" },
-                { name: "PRODUCTO 2", href: "/w3/2" },
-                { name: "PRODUCTO 3", href: "/w3/3" }
+                {name: "Configuración de Riesgos Agrupadores: Creación y Estado", href: "RiesgoAgrupadores_Creacion"},
+                {
+                    name: "Configuración de Riesgos Agrupadores: Asignación a Productos",
+                    href: "RiesgosAgrupadores_Asignacion"
+                },
+                {name: "Configuración de Grupos de Pago", href: "MontosMayores_GruposPago"},
+                {name: "Config - Switch H2H", href: "Switch_H2H"},
+                {name: "Config - Switch SUNAT", href: "Switch_SUNAT"},
             ]
         },
-        { name: "NOMBRES", href: "/w4" },
-        { name: "APELLIDOS", href: "/w5" }
+        {
+            name: "ADMINISTRACIÓN",
+            children: [
+                {
+                    name: "Configuración de Autorización de Montos Mayores: Rangos y Autorizadores",
+                    href: "MontosMayores_Rangos"
+                }, //mio
+                {name: "Configuración de Autorización de Montos Mayores: Asignación de Grupos de Pago", href: ""},
+                {
+                    name: "Configuración de Firmas de Lotes: Rangos y Tipos de Autorización",
+                    href: "FirmasApoderados_RangosyTipos"
+                },
+                {
+                    name: "Configuración de Firmas de Lotes: Asignación de Firmantes",
+                    href: "FirmasApoderados_Asignacion"
+                },
+                {name: "Autorización de Ordenes de Configuración", href: "OrdenesConfiguracion"}, //mio
+            ]
+        },
+        {
+            name: "CONSULTAS",
+            children: [
+                {name: "Consultas - Provision de Fondos", href: "Consultas_Provision_Fondos"},
+                {name: "Consultas - Flujo de Caja", href: "Consultas_Flujo_Caja"},
+                {
+                    name: "Consultas - Por Documento de Pago o Beneficiario",
+                    href: "Consultas_Documento_Pago_Beneficiario"
+                },
+                {name: "Consultas - Lote", href: "Consultas_Lote"},
+                {name: "Consultas - Reporte Abono en Cuenta", href: "Consultas_Reporte_Abono_Cuenta"}
+            ]
+        }, {
+            name: "GRUPOS DE PAGO MODIFICADO",
+            href: "GruposPagoModificado"
+        },
     ];
 
     return (
-        <div className="LayoutContainer">
-            <div className="ContainerLayout__Logo" onClick={() => {}}>
-                <img
-                    src=""
-                    alt="https://marsurl.com/images/2021/06/11/LogoRimacRojo.png"
-                />
-            </div>
-            <VerticalDropdownMenu isDefaultOpen routes={routes} />
-        </div>
+        <ControllerFloatingMenu isDefaultOpen>
+            <Logo/>
+            <VerticalDropdownMenu isDefaultExpand routes={routes}/>
+        </ControllerFloatingMenu>
     );
 }
-
-/*
-todo:
-- obtener el alto de cada submenu (solución: el alto maximo puede ser tan alto como quieras, pero debe ser fijo, con esto en mente, no es necesario medir ningún alto.)
-- dividir en varios componentes
-- los padding deben ir creciendo por cada submenu
-- manejar el route match
-- modificar componente para hacer recursivo
-- crear componente floating para manejar el aparecer y desaparecer del layout
-*/
