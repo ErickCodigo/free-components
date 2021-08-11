@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import AppMassSearch from './AppMassSearch';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppMassSearch />
   </React.StrictMode>,
   document.getElementById('root')
 );
