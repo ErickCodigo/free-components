@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 
 export default function SidebarContainerItem(props) {
-    const {className, href, text, children, hasChildren = false, ...rest} = props;
+    const {className, href, text, children, hasChildren = false, isDefaultExpand = false, ...rest} = props;
 
-    const [isExpand, setIsExpand] = useState(false);
+    const [isExpand, setIsExpand] = useState(isDefaultExpand);
     const [currentClassName, setCurrentClassName] = useState("isCollapse");
 
     useEffect(() => {
